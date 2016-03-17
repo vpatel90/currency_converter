@@ -33,8 +33,7 @@ class Currency
   end
 
   def *(n)
-    Currency.new(self.amount * n, self.curr_code)
-
+    Currency.new((self.amount * n).round(2), self.curr_code)
   end
 
 end

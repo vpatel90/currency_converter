@@ -64,10 +64,12 @@ class CurrencyTest < Minitest::Test
     currency4 = Currency.new(200, 'USD')
     currency5 = Currency.new(15, 'USD')
     currency6 = Currency.new(7.5, 'USD')
+    currency7 = Currency.new(3.38, 'USD')
 
     assert_equal currency2, currency1 * 5
     assert_equal currency4, currency3 * 10
     assert_equal currency6, currency5 * 0.5
+    assert_equal currency7, currency6 * 0.45
   end
 
 end
