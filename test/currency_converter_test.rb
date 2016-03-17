@@ -9,12 +9,13 @@ class CurrencyConverterTest < Minitest::Test
   end
 
   def test_conversaion_rate_exists
-    converter = CurrencyConverter.new
-    converter.conversion_rate = {USD:1.0, EUR:0.88}
-    assert_equal({USD:1.0,EUR:0.88}, converter.conversion_rate)
+    converter = CurrencyConverter.new( {USD:1.0,EUR:0.88,GBP:0.69} )
+    assert_equal({USD:1.0,EUR:0.88,GBP:0.69}, converter.conversion_rate)
   end
 
-  
+  def test_convert
+
+  end
 
 
 end

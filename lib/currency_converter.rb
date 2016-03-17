@@ -2,7 +2,7 @@ require_relative '../lib/currency'
 
 class CurrencyConverter
   attr_accessor :conversion_rate
-  def initialize
-    @conversion_rate = {USD:1.0,EUR:0.88,GBP:0.69}
+  def initialize(conversion_rate)
+    @conversion_rate = conversion_rate
   end
 end
