@@ -21,6 +21,7 @@ class Currency
       raise InvalidCurrencyLogo if @logos[logo.to_sym].nil?
       @curr_code = @logos[logo.to_sym]
     else
+      raise DifferentCurrencyCode if @logos[logo.to_sym] != @curr_code = args[1]
       @curr_code = args[1]
     end
 
