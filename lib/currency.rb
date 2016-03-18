@@ -18,10 +18,11 @@ class Currency
     logo = get_logo(@amount) if @amount.class == String && @amount.strip[0].to_i == 0
     @amount = @amount.to_f
     if args.size == 1
+      raise ArgumentError if logo.nil?
       raise InvalidCurrencyLogo if @logos[logo.to_sym].nil?
       @curr_code = @logos[logo.to_sym]
     else
-      raise DifferentCurrencyCode if @logos[logo.to_sym] != @curr_code = args[1]
+      raise DifferentCurrencyCode unless logo.nil? || @logos[logo.to_sym] == args[1]
       @curr_code = args[1]
     end
 

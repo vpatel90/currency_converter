@@ -78,14 +78,21 @@ class CurrencyTest < Minitest::Test
     assert_equal 'USD', currency1.curr_code
     assert_equal 'USD', currency2.curr_code
 
-
-
     assert_raises ArgumentError do
       Currency.new(25, 'USD', 'GBP')
     end
     assert_raises InvalidCurrencyLogo do
       Currency.new('£25')
     end
+
+    assert_raises ArgumentError do
+      Currency.new('25')
+    end
+
+    assert_raises DifferentCurrencyCode do
+      Currency.new('£25', 'USD')
+    end
+
   end
 
 end
