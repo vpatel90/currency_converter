@@ -5,13 +5,13 @@ require_relative '../lib/currency'
 
 class CurrencyTest < Minitest::Test
   def test_Currency
-    assert Currency.new(10,'$')
+    assert Currency.new(10,'USD')
   end
 
   def test_amount_curr_code
-    currency = Currency.new(10,'$')
+    currency = Currency.new(10,'USD')
     assert_equal(10,currency.amount)
-    assert_equal('$',currency.curr_code)
+    assert_equal('USD',currency.curr_code)
   end
 
   def test_currency_equals_currency
@@ -70,6 +70,22 @@ class CurrencyTest < Minitest::Test
     assert_equal currency4, currency3 * 10
     assert_equal currency6, currency5 * 0.5
     assert_equal currency7, currency6 * 0.45
+  end
+
+  def test_dollar_icon
+    currency1 = Currency.new('$10')
+    currency2 = Currency.new('$25', 'USD')
+    assert_equal 'USD', currency1.curr_code
+    assert_equal 'USD', currency2.curr_code
+
+
+
+    assert_raises ArgumentError do
+      Currency.new(25, 'USD', 'GBP')
+    end
+    assert_raises InvalidCurrencyLogo do
+      Currency.new('£25')
+    end
   end
 
 end

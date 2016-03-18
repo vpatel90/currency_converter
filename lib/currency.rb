@@ -5,11 +5,29 @@ class DifferentCurrencyCode < StandardError
   end
 end
 
+class InvalidCurrencyLogo < StandardError
+
+end
+
 class Currency
   attr_accessor :amount, :curr_code
-  def initialize(amount,curr_code)
-    @amount = amount
-    @curr_code = curr_code
+  def initialize(*args)
+    raise ArgumentError if args.size > 2
+    @logos = {'$': 'USD'}
+    @amount, @curr_code = args
+    logo = get_logo(@amount) if @amount.class == String && @amount.strip[0].to_i == 0
+    @amount = @amount.to_f
+    if args.size == 1
+      raise InvalidCurrencyLogo if @logos[logo.to_sym].nil?
+      @curr_code = @logos[logo.to_sym]
+    else
+      @curr_code = args[1]
+    end
+
+  end
+
+  def get_logo(amount)
+    logo = amount.slice!(0)
   end
 
   def ==(other)

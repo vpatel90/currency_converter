@@ -30,6 +30,11 @@ class CurrencyConverterTest < Minitest::Test
       @converter.convert(currency4, 'USD')
     end
 
+    currency5 = Currency.new(22, 'EUR')
+    currency6 = Currency.new(17.20, 'GBP')
+
+    assert_equal currency6, @converter.convert(currency5, 'GBP')
+
   end
 
 
