@@ -9,6 +9,12 @@ class InvalidCurrencyLogo < StandardError
 
 end
 
+class String #MonkeyPatch
+  def numeric?
+    Float(self) != nil rescue false
+  end
+end
+
 class Currency
   attr_accessor :amount, :curr_code
   def initialize(*args)
@@ -23,7 +29,7 @@ class Currency
       @curr_code = @logos[logo.to_sym]
     else
       raise DifferentCurrencyCode unless logo.nil? || @logos[logo.to_sym] == args[1]
-      @curr_code = args[1]
+      @curr_code = args[1].upcase
     end
 
   end

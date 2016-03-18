@@ -92,7 +92,6 @@ class CurrencyTest < Minitest::Test
     assert_raises DifferentCurrencyCode do
       Currency.new('£25', 'USD')
     end
-
   end
 
 end
