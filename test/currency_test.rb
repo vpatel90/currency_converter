@@ -11,7 +11,7 @@ class CurrencyTest < Minitest::Test
   def test_amount_curr_code
     currency = Currency.new(10,'USD')
     assert_equal(10,currency.amount)
-    assert_equal('USD',currency.curr_code)
+    assert_equal(:USD,currency.curr_code)
   end
 
   def test_currency_equals_currency
@@ -64,7 +64,7 @@ class CurrencyTest < Minitest::Test
     currency4 = Currency.new(200, 'USD')
     currency5 = Currency.new(15, 'USD')
     currency6 = Currency.new(7.5, 'USD')
-    currency7 = Currency.new(3.38, 'USD')
+    currency7 = Currency.new(3.375, 'USD')
 
     assert_equal currency2, currency1 * 5
     assert_equal currency4, currency3 * 10
@@ -75,8 +75,8 @@ class CurrencyTest < Minitest::Test
   def test_dollar_icon
     currency1 = Currency.new('$10')
     currency2 = Currency.new('$25', 'USD')
-    assert_equal 'USD', currency1.curr_code
-    assert_equal 'USD', currency2.curr_code
+    assert_equal :USD, currency1.curr_code
+    assert_equal :USD, currency2.curr_code
 
     assert_raises ArgumentError do
       Currency.new(25, 'USD', 'GBP')

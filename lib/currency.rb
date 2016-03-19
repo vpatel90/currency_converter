@@ -26,10 +26,10 @@ class Currency
     if args.size == 1
       raise ArgumentError if logo.nil?
       raise InvalidCurrencyLogo if @logos[logo.to_sym].nil?
-      @curr_code = @logos[logo.to_sym]
+      @curr_code = @logos[logo.to_sym].to_sym
     else
       raise DifferentCurrencyCode unless logo.nil? || @logos[logo.to_sym] == args[1]
-      @curr_code = args[1].upcase
+      @curr_code = args[1].upcase.to_sym
     end
 
   end
@@ -59,7 +59,7 @@ class Currency
   end
 
   def *(n)
-    Currency.new((self.amount * n).round(2), self.curr_code)
+    Currency.new((self.amount * n).round(5), self.curr_code)
   end
 
 end

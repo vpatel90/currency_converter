@@ -16,6 +16,6 @@ class CurrencyConverter
 
     new_value = (@rate[new_code.to_sym] /
                 @rate[currency.curr_code.to_sym]) * currency.amount
-    Currency.new(new_value.round(2), new_code)
+    Currency.new(new_value.round(5), new_code)
   end
 end

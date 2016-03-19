@@ -18,7 +18,7 @@ class CurrencyConverterTest < Minitest::Test
 
   def test_convert
     currency1 = Currency.new(10, 'USD')
-    currency2 = Currency.new(8.83, 'EUR')
+    currency2 = Currency.new(8.8346, 'EUR')
     currency3 = Currency.new(14, 'USD')
     currency4 = Currency.new(1557.71, 'Yen')
 
@@ -31,7 +31,7 @@ class CurrencyConverterTest < Minitest::Test
     end
 
     currency5 = Currency.new(22, 'EUR')
-    currency6 = Currency.new(17.20, 'GBP')
+    currency6 = Currency.new(17.20112, 'GBP')
 
     assert_equal currency6, @converter.convert(currency5, 'GBP')
 
