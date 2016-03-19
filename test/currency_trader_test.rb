@@ -15,15 +15,8 @@ class CurrencyTraderTest < Minitest::Test
     assert CurrencyTrader.new(@starting_currency, @converters)
   end
 
-  def test_trade_investing
-    investments = [Currency.new(1000,:USD),Currency.new(883.46,:EUR),Currency.new(690.75, :GBP)]
-    assert_equal(investments, CurrencyTrader.new(@starting_currency, @converters).investing)
-  end
-
-  def test_trade_returns
-    investments = [Currency.new(1000,:USD),Currency.new(883.46,:EUR),Currency.new(690.75, :GBP)]
-    best_trade = [1169.27634, Currency.new(1169.27634, "USD"), "Buy GBP and then sell it for USD"]
-    assert_equal(best_trade, CurrencyTrader.new(@starting_currency, @converters).returns(investments))
+  def test_trade_returns_anustart
+    assert_equal(Currency.new(1169.27634, "USD"), CurrencyTrader.new(@starting_currency, @converters).anustart)
   end
 
 end
