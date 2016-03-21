@@ -19,7 +19,7 @@ class CurrencyTrader
     @investment_pattern = []
   end
 
-  def anustart
+  def start
     terminal_nodes = multi_trades(@converters)
     useful_nodes = []
     terminal_nodes.each do |node|
@@ -61,5 +61,4 @@ class CurrencyTrader
     end
     return parent_node
   end
-
 end

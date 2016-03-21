@@ -6,7 +6,6 @@ class DifferentCurrencyCode < StandardError
 end
 
 class InvalidCurrencyLogo < StandardError
-
 end
 
 class String #MonkeyPatch
@@ -31,7 +30,6 @@ class Currency
       raise DifferentCurrencyCode unless logo.nil? || @logos[logo.to_sym] == args[1]
       @curr_code = args[1].upcase.to_sym
     end
-
   end
 
   def get_logo(amount)
@@ -61,5 +59,4 @@ class Currency
   def *(n)
     Currency.new((self.amount * n).round(5), self.curr_code)
   end
-
 end

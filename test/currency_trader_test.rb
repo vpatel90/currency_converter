@@ -16,7 +16,7 @@ class CurrencyTraderTest < Minitest::Test
   end
 
   def test_trade_returns_anustart
-    assert_equal(Currency.new(1169.27634, "USD"), CurrencyTrader.new(@starting_currency, @converters).anustart)
+    assert_equal(Currency.new(1169.27634, "USD"), CurrencyTrader.new(@starting_currency, @converters).start)
   end
 
 end
