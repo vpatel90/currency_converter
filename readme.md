@@ -8,8 +8,7 @@ The Currency class will create currency objects with 2 attributes. Amount and Cu
 It's been customised to be able to add, subtract and multiply currencies of the same code
 
 It can also take either 1 or two attribtues
-```
-Currency.new($20)``` ```Currency.new(20, "USD")``` and ```Currency.new($20, "USD")``` are all valid
+`Currency.new($20)` `Currency.new(20, "USD")` and `Currency.new($20, "USD")` are all valid
 
 ##Currency Converter
 The converter object will take a hash containing various currency types and their market values
