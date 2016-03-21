@@ -19,3 +19,5 @@ There is a convert method in this object that takes a Currency object and a diff
 This object takes a starting currency and multiple Currency Converter objects
 
 Assuming the Currency Converter objects were arranged appropriately in the array the Currency Trader will calculate the best way to trade the starting currency in order to maximize profits
+
+There is also a supplimental TradeNode class, which keeps track of every transaction that the currency trader makes
